@@ -14,10 +14,16 @@ function fill(e){
         count++;
         // $.delay(300);
         // iswin();
-        if(iswin())
-            console.log("X won")
-        else if(count == 9)
-            console.log("draw")
+        if(iswin()){
+            setTimeout(()=>{
+                alert("X won");
+            } , 200);
+        }
+        else if(count == 9){
+            setTimeout(()=>{
+                alert("draw");
+            } , 200);
+        }
     }
     else if(!isX && !isfill){
         temp[e].innerHTML = "<b>O</b>";
@@ -25,10 +31,16 @@ function fill(e){
         count++;
         // $.delay(300);
         // iswin();
-        if(iswin())
-            console.log("O won")
-        else if(count == 9)
-            console.log("draw")
+        if(iswin()){
+            setTimeout(()=>{
+                alert("O won");
+            } , 200);
+        }
+        else if(count == 9){
+            setTimeout(()=>{
+                alert("draw");
+            } , 200);
+        }
     }
     // if(count == 9)
     // console.log("Draw");
