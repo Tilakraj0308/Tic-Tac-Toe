@@ -1,4 +1,5 @@
 var isX = true;
+// i = -1;
 count = 0;
 temp = $(".p-2");
 function fill(e){
@@ -13,6 +14,10 @@ function fill(e){
         count++;
         // $.delay(300);
         // iswin();
+        if(iswin())
+            console.log("X won")
+        else if(count == 9)
+            console.log("draw")
     }
     else if(!isX && !isfill){
         temp[e].innerHTML = "<b>O</b>";
@@ -20,12 +25,13 @@ function fill(e){
         count++;
         // $.delay(300);
         // iswin();
+        if(iswin())
+            console.log("O won")
+        else if(count == 9)
+            console.log("draw")
     }
-    if(iswin()){
-        console.log("Someone won");
-    }
-    else if(count == 9)
-    console.log("Draw");
+    // if(count == 9)
+    // console.log("Draw");
 }
 function checkd1(){
     til = temp[0].innerHTML;
