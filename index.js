@@ -108,7 +108,7 @@ function iswin(){
     return won;
 }
 function changecol(a , b , c){
-    $(temp[a]).css("color", "#fbc531");
-    $(temp[b]).css("color", "#fbc531");
-    $(temp[c]).css("color", "#fbc531");
+    $(temp[a]).css("color", "green");
+    $(temp[b]).css("color", "green");
+    $(temp[c]).css("color", "green");
 }
