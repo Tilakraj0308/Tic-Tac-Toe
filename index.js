@@ -1,6 +1,6 @@
 var isX = true;
-// i = -1;
 count = 0;
+var record = new Array(9);
 temp = $(".p-2");
 function fill(e){
     // temp = document.getElementsByClassName("p-2");
@@ -11,11 +11,14 @@ function fill(e){
     if(isX && !isfill){
         temp[e].innerHTML = "<b>X</b>";
         isX = false;
+        record[count] = e;
         count++;
         // $.delay(300);
         // iswin();
         if(iswin()){
+            changecol(record[count-1] , record[count-3] , record[count-5]);
             setTimeout(()=>{
+                changecol(0,1,2)
                 alert("X won");
             } , 200);
         }
@@ -28,10 +31,12 @@ function fill(e){
     else if(!isX && !isfill){
         temp[e].innerHTML = "<b>O</b>";
         isX = true;
+        record[count] = e;
         count++;
         // $.delay(300);
         // iswin();
         if(iswin()){
+            changecol(record[count-1] , record[count-3] , record[count-5]);
             setTimeout(()=>{
                 alert("O won");
             } , 200);
@@ -102,4 +107,8 @@ function iswin(){
     // }
     return won;
 }
-
+function changecol(a , b , c){
+    $(temp[a]).css("color", "#fbc531");
+    $(temp[b]).css("color", "#fbc531");
+    $(temp[c]).css("color", "#fbc531");
+}
