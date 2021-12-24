@@ -19,12 +19,20 @@ function fill(e){
             changecol(record[count-1] , record[count-3] , record[count-5]);
             setTimeout(()=>{
                 changecol(0,1,2)
-                alert("X won");
+                // alert("X won");
+                if(confirm("X won!!!\nDo you wanna play again?"))
+                    fresh();
+                else
+                    window.close()
             } , 200);
         }
         else if(count == 9){
             setTimeout(()=>{
-                alert("draw");
+                // alert("draw");
+                if(confirm("It's a Draw!!!\nDo you wanna play again?"))
+                    fresh();
+                else
+                    window.close()
             } , 200);
         }
     }
@@ -38,12 +46,20 @@ function fill(e){
         if(iswin()){
             changecol(record[count-1] , record[count-3] , record[count-5]);
             setTimeout(()=>{
-                alert("O won");
+                // alert("O won");
+                if(confirm("O won!!!\nDo you wanna play again?"))
+                    fresh();
+                else
+                    window.close()
             } , 200);
         }
         else if(count == 9){
             setTimeout(()=>{
-                alert("draw");
+                // alert("draw");
+                if(confirm("It's a Draw!!!\nDo you wanna play again?"))
+                    fresh();
+                else
+                    window.close()
             } , 200);
         }
     }
@@ -111,4 +127,12 @@ function changecol(a , b , c){
     $(temp[a]).css("color", "green");
     $(temp[b]).css("color", "green");
     $(temp[c]).css("color", "green");
+}
+function fresh(){
+    for(let i = 0 ; i < 9 ; i++){
+        temp[i].innerHTML = "";
+        $(temp[i]).css("color" , "white");
+    }
+        count = 0;
+        isX = true;
 }
