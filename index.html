@@ -16,7 +16,7 @@
             height: 25vh;
             width: 10vw;
             margin: 10px;
-            background-color: rgba(0,0,0,.3);
+            background-color: rgba(0, 0, 0, .3);
             /* opacity: 0.3; */
             color: white;
             display: flex;
@@ -28,43 +28,28 @@
             font-size: 60px;
             font-family: 'Courier New', Courier, monospace;
         }
+
         @media only screen and (max-width: 900px) {
             .p-2 {
                 height: 23vh;
                 width: 14vw;
                 margin: 8px;
-                background-color: black;
-                opacity: 0.3;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
+
         @media only screen and (max-width: 800px) {
             .p-2 {
                 height: 22vh;
                 width: 18vw;
                 margin: 6px;
-                background-color: black;
-                opacity: 0.3;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
+
         @media only screen and (max-width: 361px) {
             .p-2 {
                 height: 18vh;
                 width: 21vw;
                 margin: 6px;
-                background-color: black;
-                opacity: 0.3;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
     </style>
@@ -72,6 +57,43 @@
 
 <body>
     <h1 align="center">Tic-Tac-Toe</h1>
+    <h3 style="text-align: center;" id="vs"></h3>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Tic tac toe</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="modal-form">
+                    <div class="modal-body">
+                        <div class="mb-3 row">
+                            <label for="player-1" class="col-sm-4 col-form-label">Player 1 (X)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="player-1" placeholder="Name of the player 1"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="player-2" class="col-sm-4 col-form-label">Player 2 (O)</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="player-2" placeholder="Name of the player 2"
+                                    required>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="close-btn">Close</button>
+                        <button type="submit" class="btn btn-primary">Begin game</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- PlayBoard -->
 
