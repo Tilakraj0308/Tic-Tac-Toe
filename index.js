@@ -15,14 +15,14 @@ function fill(e) {
     if (isX && !isfill) {
         temp[e].innerHTML = "<b>X</b>";
         isX = false;
-        record[count] = e;
+        // record[count] = e;
         count++;
         // $.delay(300);
         // iswin();
         if (iswin()) {
             // changecol(record[count - 1], record[count - 3], record[count - 5]);
             setTimeout(() => {
-                changecol(0, 1, 2)
+                // changecol(0, 1, 2)
                 // alert("X won");
                 if (confirm((player1==undefined? "X" : player1) + " won!!!\nDo you wanna play again?"))
                     // fresh();
@@ -35,7 +35,8 @@ function fill(e) {
             setTimeout(() => {
                 // alert("draw");
                 if (confirm("It's a Draw!!!\nDo you wanna play again?"))
-                    fresh();
+                    // fresh();
+                    window.location.reload()
                 else
                     window.close()
             }, 200);
@@ -44,7 +45,7 @@ function fill(e) {
     else if (!isX && !isfill) {
         temp[e].innerHTML = "<b>O</b>";
         isX = true;
-        record[count] = e;
+        // record[count] = e;
         count++;
         // iswin();
         if (iswin()) {
@@ -62,7 +63,8 @@ function fill(e) {
             setTimeout(() => {
                 // alert("draw");
                 if (confirm("It's a Draw!!!\nDo you wanna play again?"))
-                    fresh();
+                    // fresh();
+                    window.location.reload()
                 else
                     window.close()
             }, 200);
