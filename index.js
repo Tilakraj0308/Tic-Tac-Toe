@@ -1,7 +1,7 @@
 // $(() => {
 var isX = true;
 count = 0;
-var record = new Array(9);
+// var record = new Array(9);
 temp = $(".p-2");
 var player1;
 var player2;
@@ -20,12 +20,13 @@ function fill(e) {
         // $.delay(300);
         // iswin();
         if (iswin()) {
-            changecol(record[count - 1], record[count - 3], record[count - 5]);
+            // changecol(record[count - 1], record[count - 3], record[count - 5]);
             setTimeout(() => {
                 changecol(0, 1, 2)
                 // alert("X won");
                 if (confirm((player1==undefined? "X" : player1) + " won!!!\nDo you wanna play again?"))
-                    fresh();
+                    // fresh();
+                    window.location.reload()
                 else
                     window.close()
             }, 200);
@@ -47,11 +48,12 @@ function fill(e) {
         count++;
         // iswin();
         if (iswin()) {
-            changecol(record[count - 1], record[count - 3], record[count - 5]);
+            // changecol(record[count - 1], record[count - 3], record[count - 5]);
             setTimeout(() => {
                 // alert("O won");
                 if (confirm((player2==undefined? "O" : player2)  + " won!!!\nDo you wanna play again?"))
-                    fresh();
+                    // fresh();
+                    window.location.reload()
                 else
                     window.close()
             }, 200);
@@ -69,29 +71,37 @@ function fill(e) {
 }
 function checkd1() {
     til = temp[0].innerHTML;
-    if (temp[4].innerHTML == til && temp[8].innerHTML == til)
+    if (temp[4].innerHTML == til && temp[8].innerHTML == til){
+        changecol(0 , 4 , 8);
         return true
+    }
     else
         return false
 }
 function checkd2() {
     til = temp[2].innerHTML;
-    if (temp[4].innerHTML == til && temp[6].innerHTML == til)
+    if (temp[4].innerHTML == til && temp[6].innerHTML == til){
+        changecol(2 , 4 , 6);
         return true
+    }
     else
         return false
 }
 function check_row(i) {
     til = temp[i].innerHTML;
-    if (temp[i + 1].innerHTML == til && temp[i + 2].innerHTML == til)
+    if (temp[i + 1].innerHTML == til && temp[i + 2].innerHTML == til){
+        changecol(i , i+1 , i+2);
         return true
+    }
     else
         return false
 }
 function check_col(i) {
     til = temp[i].innerHTML;
-    if (temp[i + 3].innerHTML == til && temp[i + 6].innerHTML == til)
+    if (temp[i + 3].innerHTML == til && temp[i + 6].innerHTML == til){
+        changecol(i , i+3 , i+6);
         return true
+    }
     else
         return false
 }
@@ -129,14 +139,14 @@ function changecol(a, b, c) {
     $(temp[b]).css("color", "green");
     $(temp[c]).css("color", "green");
 }
-function fresh() {
-    for (let i = 0; i < 9; i++) {
-        temp[i].innerHTML = "";
-        $(temp[i]).css("color", "white");
-    }
-    count = 0;
-    isX = true;
-}
+// function fresh() {
+//     for (let i = 0; i < 9; i++) {
+//         temp[i].innerHTML = "";
+//         $(temp[i]).css("color", "white");
+//     }
+//     count = 0;
+//     isX = true;
+// }
 $(document).ready(function () {
     $("#staticBackdrop").modal("show");
     $("#close-btn").click(function () {
