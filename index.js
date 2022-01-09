@@ -1,4 +1,3 @@
-// $(() => {
 var isX = true;
 count = 0;
 temp = $(".p-2");
@@ -6,7 +5,6 @@ var player1;
 var player2;
 
 function fill(e) {
-    // temp = document.getElementsByClassName("p-2");
     isfill = true;
     if (temp[e].innerHTML == "") {
         isfill = false;
@@ -14,17 +12,10 @@ function fill(e) {
     if (isX && !isfill) {
         temp[e].innerHTML = "<b>X</b>";
         isX = false;
-        // record[count] = e;
         count++;
-        // $.delay(300);
-        // iswin();
         if (iswin()) {
-            // changecol(record[count - 1], record[count - 3], record[count - 5]);
             setTimeout(() => {
-                // changecol(0, 1, 2)
-                // alert("X won");
                 if (confirm((player1==undefined? "X" : player1) + " won!!!\nDo you wanna play again?"))
-                    // fresh();
                     window.location.reload()
                 else
                     window.close()
@@ -32,9 +23,7 @@ function fill(e) {
         }
         else if (count == 9) {
             setTimeout(() => {
-                // alert("draw");
                 if (confirm("It's a Draw!!!\nDo you wanna play again?"))
-                    // fresh();
                     window.location.reload()
                 else
                     window.close()
@@ -44,15 +33,10 @@ function fill(e) {
     else if (!isX && !isfill) {
         temp[e].innerHTML = "<b>O</b>";
         isX = true;
-        // record[count] = e;
         count++;
-        // iswin();
         if (iswin()) {
-            // changecol(record[count - 1], record[count - 3], record[count - 5]);
             setTimeout(() => {
-                // alert("O won");
                 if (confirm((player2==undefined? "O" : player2)  + " won!!!\nDo you wanna play again?"))
-                    // fresh();
                     window.location.reload()
                 else
                     window.close()
@@ -60,9 +44,7 @@ function fill(e) {
         }
         else if (count == 9) {
             setTimeout(() => {
-                // alert("draw");
                 if (confirm("It's a Draw!!!\nDo you wanna play again?"))
-                    // fresh();
                     window.location.reload()
                 else
                     window.close()
@@ -111,7 +93,6 @@ function iswin() {
     for (let i = 0; i < 3; i++) {
         if (temp[i].innerHTML == "")
             continue;
-        // if(temp[i].innerHTML!=null){
         else {
             if (i == 0)
                 won = won || checkd1();
@@ -124,15 +105,11 @@ function iswin() {
         if (temp[i].innerHTML == "")
             continue;
         else {
-            // if(temp[i].innerHTML!=null){
             if (i == 0)
                 won = won || checkd1();
             won = won || check_row(i);
         }
     }
-    // if(won){
-    //     console.log("Someone won")
-    // }
     return won;
 }
 function changecol(a, b, c) {
@@ -140,20 +117,9 @@ function changecol(a, b, c) {
     $(temp[b]).css("color", "green");
     $(temp[c]).css("color", "green");
 }
-// function fresh() {
-//     for (let i = 0; i < 9; i++) {
-//         temp[i].innerHTML = "";
-//         $(temp[i]).css("color", "white");
-//     }
-//     count = 0;
-//     isX = true;
-// }
 $(document).ready(function () {
     $("#staticBackdrop").modal("show");
     $("#close-btn").click(function () {
-        // window.opener = self;
-        // window.open('', '_blank', '').close();
-        // window.closeAll();
         $("#staticBackdrop").modal("hide");
     });
     $("#modal-form").submit(function (e) {
