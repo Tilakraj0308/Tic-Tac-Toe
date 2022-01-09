@@ -1,7 +1,6 @@
 // $(() => {
 var isX = true;
 count = 0;
-// var record = new Array(9);
 temp = $(".p-2");
 var player1;
 var player2;
